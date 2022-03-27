@@ -132,7 +132,7 @@ model-viewer[ar-tracking="not-tracking"] > #ar-failure {
 
 .slides {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
