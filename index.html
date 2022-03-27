@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>TEST</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="<model-viewer> TEST">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="styles.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://plinar.com/ar/test1/get/favicon.png" type="image/x-icon">
+
+    <script
+      src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <div id="webXR" class="demo">
+      <model-viewer 
+        src="/Object/Upper_cabinet_12.glb" 
+        poster="/Object/Upper_cabinet_12.png" 
+        shadow-intensity="1" 
+        ar ar-modes="webxr scene-viewer quick-look" 
+        camera-controls alt="A 3D model carousel">
+  <!-- <model-viewer
+  bounds="tight" 
+  enable-pan src="Upper_cabinet_12.glb" 
+  shadow-intensity="1"
+  ar
+  ar-modes="webxr scene-viewer quick-look"
+  camera-controls alt="A 3D model carousel"
+  camera-target="0m 0.02m 0m"
+  camera-orbit="-95.67deg 90.91deg auto"
+  auto-rotate
+  autoplay
+  min-camera-orbit="auto auto auto"
+  max-came+ra-orbit="auto auto auto"  
+  scale="0.2 0.2 0.2"  
+  ar-scale="auto" 
+  ar-placement="floor"> -->
+
+        <button slot="ar-button" id="ar-button">
+          View in your space
+        </button>
+        <div id="ar-prompt">
+          <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+        </div>
+        <button id="ar-failure">
+          AR is not tracking!
+        </button>
+
+        <div class="slider">
+          <div class="slides">
+            <button 
+              class="slide selected" 
+              onclick="switchSrc(this, 'Upper_cabinet_12')" 
+              style="background-image: url('Object/upper_cabinet_12.png');">
+            </button>
+            <button 
+              class="slide" 
+              onclick="switchSrc(this, 'Upper_corner_cabinet')" 
+              style="background-image: url('Object/upper_corner_cabinet.png');">
+            </button>
+            <button 
+              class="slide" 
+              onclick="switchSrc(this, 'Fridge_642')" 
+              style="background-image: url('Object/fridge_642.png');">    
+            </button>
+            <button 
+              class="slide" 
+              onclick="switchSrc(this, 'Cooker')" 
+              style="background-image: url('Object/cooker.png');">    
+            </button>
+            <button 
+              class="slide" 
+              onclick="switchSrc(this, 'Corner_sofa')" 
+              style="background-image: url('Object/corner_sofa.png');">    
+            </button>
+          </div>
+        </div>
+      </div>
+</model-viewer>
+
+<script type="module">
+  const modelViewer = document.querySelector("model-viewer");
+  window.switchSrc = (element, name) => {
+    const base = "/Object/" + name;
+    modelViewer.src = base + '.glb';
+    modelViewer.src = base + '.usdz';
+    modelViewer.poster = base + '.png'
+    const slides = document.querySelectorAll(".slide");
+    slides.forEach((element) => {element.classList.remove("selected");});
+    element.classList.add("selected");
+  };
+
+  document.querySelector(".slider").addEventListener('beforexrselect', (ev) => {
+    // Keep slider interactions from affecting the XR scene.
+    ev.preventDefault();
+  });
+</script>
+
+  
+  <!-- ar-scale="auto" 
+  ar-placement="floor"
+  exposure="1"
+  ar-modes="scene-viewer webxr quick-look" 
+  ios-src="sceneCats2.usdz"
+  
+  >
+     <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+    </div>
+  </model-viewer>
+    <script src="script.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>-->
+
+
+  </div>
+  </body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <title>TEST</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="TEST" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link type="text/css" href="https://plinar.com/ar/test/styles.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="https://plinar.com/ar/test/get/favicon.png" type="image/x-icon">
+
+    <script
+      src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js"
+      defer
+    ></script>
+  </head>
+  <body>
+  </model-viewer>
+  <model-viewer 
+  bounds="tight" 
+  enable-pan src="sceneCats2.glb" 
+  ar 
+  ar-scale="auto"
+  ar-placement="floor"
+  camera-controls
+  exposure="1"
+  shadow-intensity="2" 
+  ar-modes="scene-viewer webxr quick-look" 
+  ios-src="sceneCats2.usdz"
+  camera-target="0m 0.02m 0m"
+  camera-orbit="-95.67deg 90.91deg auto"
+  auto-rotate
+  autoplay
+  min-camera-orbit="auto auto auto"
+  max-camera-orbit="auto auto auto"  
+  scale="0.2 0.2 0.2"  
+  >
+  
+
+    <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+    </div>
+    <button slot="ar-button" id="ar-button">
+        View in your space
+    </button>
+    <div id="ar-prompt">
+        <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+    </div>
+</model-viewer>
+
+  
+
+    <script src="script.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+  </body>
+</html>
+ -->
